@@ -17,8 +17,10 @@ class Item extends Component {
         this.getInputValue = this.getInputValue.bind(this);
         this.setNewTaskValue = this.setNewTaskValue.bind(this);
         this.toggleDisabled = this.toggleDisabled.bind(this);
+        this.doubleClickToggle = this.doubleClickToggle.bind(this);
         this.updateTempValue = this.updateTempValue.bind(this);
         this.renderRightSideButtons = this.renderRightSideButtons.bind(this);
+        this.saveWithEnterKey = this.saveWithEnterKey.bind(this);
     }
 
     getInputValue() {
@@ -37,10 +39,28 @@ class Item extends Component {
         }));
     }
 
+    doubleClickToggle(e) {
+        //allows input toggling only if it was disabled
+        if (this.state.isDisabled) {
+            this.toggleDisabled();
+
+            //make sure that caret goes to the end of input, instead of selecting contents
+            const temp_value = e.target.value;
+            e.target.value = '';
+            e.target.value = temp_value;
+        }
+    }
+
     updateTempValue(event) {
         this.setState({
             tempValue: event.target.value,
         });
+    }
+
+    saveWithEnterKey(event) {
+        if (event.which === 13) {
+            this.setNewTaskValue();
+        }
     }
 
     renderRightSideButtons() {
@@ -88,8 +108,10 @@ class Item extends Component {
                     value={this.getInputValue()}
                     type="text"
                     className="form-control"
-                    disabled={this.state.isDisabled}
+                    readOnly={this.state.isDisabled}
                     onChange={this.updateTempValue}
+                    onDoubleClick={this.doubleClickToggle}
+                    onKeyPress={this.saveWithEnterKey}
                 />
                 <div className="input-group-append">{ this.renderRightSideButtons() } </div>
             </div>
