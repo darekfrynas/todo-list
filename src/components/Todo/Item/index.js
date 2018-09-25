@@ -30,12 +30,17 @@ class Item extends Component {
                 <input value={this.props.value} type="text" className="form-control" />
                 <div className="input-group-append">
                     <button
-                        className="btn btn-danger"
-                        title="Remove this task"
-                        onClick={this.props.store.removeTodo.bind(this, this.props.id)}
-                    >
-                        <i className="fas fa-times"></i>
-                    </button>
+                        className="btn btn-secondary dropdown-toggle"
+                        data-toggle="dropdown"
+                    />
+                    <div class="dropdown-menu">
+                        <button
+                            class="btn dropdown-item text-danger"
+                            onClick={this.props.store.removeTodo.bind(this, this.props.id)}
+                        >
+                            Remove this task
+                        </button>
+                    </div>
                 </div>
             </div>
         );
