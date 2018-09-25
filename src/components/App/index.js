@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
+import DevTools from 'mobx-react-devtools'
 
 import TodoList from '../Todo/List'
 import TodoListStore from '../Todo/List/store'
@@ -13,6 +14,7 @@ class App extends Component {
         return (
             <div className="container">
                 <TodoList store={store} />
+                <DevTools />
             </div>
         );
     }
