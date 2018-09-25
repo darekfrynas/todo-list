@@ -1,6 +1,8 @@
 import React from 'react';
+import { inject } from 'mobx-react';
 
 
+@inject('store')
 class AddNew extends React.Component {
     constructor(props) {
         super(props);
