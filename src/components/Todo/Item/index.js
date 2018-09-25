@@ -76,10 +76,7 @@ class Item extends Component {
         return (
             <div className="input-group mb-1">
                 <div className="input-group-prepend">
-                    <button
-                        className={checkboxClass}
-                        onClick={this.props.toggleCompleted}
-                    >
+                    <button className={checkboxClass} onClick={this.props.toggleCompleted}>
                         {
                             this.props.completed ?
                                 <i className="far fa-check-square"></i> :
@@ -94,9 +91,7 @@ class Item extends Component {
                     disabled={this.state.isDisabled}
                     onChange={this.updateTempValue}
                 />
-                <div className="input-group-append">
-                    {this.renderRightSideButtons()}
-                </div>
+                <div className="input-group-append">{ this.renderRightSideButtons() } </div>
             </div>
         );
     }
