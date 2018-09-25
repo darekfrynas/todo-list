@@ -3,9 +3,18 @@ import { observable, action, computed } from 'mobx';
 import TodoItemStore from '../Item/store'
 
 
+/**
+ * @filter {string} (all|complete|incomplete) - defines filter type for tasks list
+ */
 class TodoListStore {
     @observable search = '';
-    @observable todos = [];
+    @observable filter = 'all';
+    @observable todos = [
+        new TodoItemStore('Feed the cat'),
+        new TodoItemStore('Feed the dog'),
+        new TodoItemStore('Buy pasta'),
+        new TodoItemStore('Order pizza'),
+    ];
 
     @action.bound
     addTodo(value) {
@@ -23,13 +32,32 @@ class TodoListStore {
         this.search = search;
     }
 
+    @action.bound
+    setFilter(filter) {
+        console.log(filter);
+        if (filter) {
+            return this.filter = filter;
+        }
+        this.filter = 'all';
+    }
+
     @computed
     get getTodos() {
-        if (this.search !== '') {
-            return this.todos.filter(item => item.value.toLowerCase().includes(this.search.toLowerCase()));
+        let filtered = this.todos;
 
+        if (this.search !== '') {
+            filtered = filtered.filter(item => item.value.toLowerCase().includes(this.search.toLowerCase()));
         }
-        return this.todos;
+
+        if (this.filter === 'complete') {
+            filtered = filtered.filter(item => item.completed === true);
+        }
+
+        if (this.filter === 'incomplete') {
+            filtered = filtered.filter(item => item.completed === false);
+        }
+
+        return filtered;
     }
 }
 
