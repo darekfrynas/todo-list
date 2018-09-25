@@ -32,8 +32,9 @@ class Item extends Component {
                     <button
                         className="btn btn-danger"
                         title="Remove this task"
-                        onClick={this.props.store.removeTodo.bind(this, this.props.id)}>
-                        <i class="fas fa-times"></i>
+                        onClick={this.props.store.removeTodo.bind(this, this.props.id)}
+                    >
+                        <i className="fas fa-times"></i>
                     </button>
                 </div>
             </div>
