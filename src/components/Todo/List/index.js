@@ -18,6 +18,7 @@ class List extends Component {
                             value={item.value}
                             completed={item.completed}
                             updateValue={item.updateValue}
+                            toggleCompleted={item.toggleCompleted}
                         />
                     ))
                 }
