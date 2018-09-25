@@ -11,7 +11,7 @@ class List extends Component {
         return (
             <div className="list">
                 {
-                    this.props.store.todos.map(item => (
+                    this.props.store.getTodos.map(item => (
                         <Item
                             key={item.id}
                             id={item.id}
