@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
 
+@inject('store')
 @observer
 class Item extends Component {
     render() {
@@ -13,6 +14,14 @@ class Item extends Component {
                     </div>
                 </div>
                 <input value={this.props.value} type="text" className="form-control" />
+                <div className="input-group-append">
+                    <button
+                        className="btn btn-danger"
+                        title="Remove this task"
+                        onClick={this.props.store.removeTodo.bind(this, this.props.id)}>
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
             </div>
         );
     }

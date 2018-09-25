@@ -10,6 +10,12 @@ class TodoListStore {
     addTodo(value) {
         this.todos.push(new TodoItemStore(value));
     }
+
+    @action.bound
+    removeTodo(id) {
+        const newTodos = this.todos.filter(todo => todo.id !== id);
+        this.todos.replace(newTodos);
+    }
 }
 
 export default TodoListStore;
