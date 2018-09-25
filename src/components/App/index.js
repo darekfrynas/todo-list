@@ -4,6 +4,7 @@ import DevTools from 'mobx-react-devtools'
 
 import TodoList from '../Todo/List'
 import TodoListStore from '../Todo/List/store'
+import AddNewItemForm from '../Todo/AddNew'
 
 
 const store = new TodoListStore();
@@ -14,6 +15,7 @@ class App extends Component {
         return (
             <div className="container">
                 <TodoList store={store} />
+                <AddNewItemForm store={store}/>
                 <DevTools />
             </div>
         );
