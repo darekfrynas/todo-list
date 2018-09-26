@@ -25,7 +25,7 @@ class Filter extends React.Component {
     render() {
         return (
             <div className="d-flex">
-                <span className="mr-2 mt-auto mb-auto">Show:</span>
+                <span className="mr-2 mt-auto mb-auto d-sm-none d-lg-inline">Show:</span>
                 <div className="btn-group d-flex w-100">
                     <button
                         className={this.getButtonClass('all')}
