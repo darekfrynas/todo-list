@@ -196,6 +196,18 @@ module.exports = {
                             ]
                         }),
                     },
+                    // scss files named with **/*.global.scss pattern won't be parsed by css modules
+                    // which allows convenient use of external CSS libraries
+                    {
+                        test: /\.global\.scss$/,
+                        use: ExtractTextPlugin.extract({
+                            fallback: 'style-loader',
+                            use: [
+                                'css-loader',
+                                'sass-loader'
+                            ]
+                        }),
+                    },
                     {
                         test: /\.scss$/,
                         use: ExtractTextPlugin.extract({
