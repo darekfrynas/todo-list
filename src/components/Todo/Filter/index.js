@@ -24,25 +24,28 @@ class Filter extends React.Component {
 
     render() {
         return (
-            <div className="btn-group d-flex">
-                <button
-                    className={this.getButtonClass('all')}
-                    onClick={this.props.store.setFilter.bind(this, 'all')}
-                >
-                    All
-                </button>
-                <button
-                    className={this.getButtonClass('complete')}
-                    onClick={this.props.store.setFilter.bind(this, 'complete')}
-                >
-                    Complete
-                </button>
-                <button
-                    className={this.getButtonClass('incomplete')}
-                    onClick={this.props.store.setFilter.bind(this, 'incomplete')}
-                >
-                    Incomplete
-                </button>
+            <div className="d-flex">
+                <span className="mr-2 mt-auto mb-auto">Show:</span>
+                <div className="btn-group d-flex w-100">
+                    <button
+                        className={this.getButtonClass('all')}
+                        onClick={this.props.store.setFilter.bind(this, 'all')}
+                    >
+                        All
+                    </button>
+                    <button
+                        className={this.getButtonClass('complete')}
+                        onClick={this.props.store.setFilter.bind(this, 'complete')}
+                    >
+                        Complete
+                    </button>
+                    <button
+                        className={this.getButtonClass('incomplete')}
+                        onClick={this.props.store.setFilter.bind(this, 'incomplete')}
+                    >
+                        Incomplete
+                    </button>
+                </div>
             </div>
         )
     }
