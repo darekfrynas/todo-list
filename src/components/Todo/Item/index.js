@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import classnames from 'classnames';
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 import './styles.scss';
 
 
@@ -86,17 +87,17 @@ class Item extends Component {
         if (!this.state.isDisabled) {
             return [
                 <button className="btn btn-secondary" onClick={this.setNewTaskValue} key="btn-save" title="Save changes">
-                    <i className="fas fa-save"></i>
+                    <FA icon="save" />
                 </button>,
                 <button className="btn btn-secondary" onClick={this.dismissEditing} key="btn-dismiss" title="Dismiss">
-                    <i className="fas fa-undo"></i>
+                    <FA icon="undo" />
                 </button>,
             ];
         }
 
         return [
             <button className="btn btn-secondary" onClick={this.startEditing} key="btn-edit" title="Edit task">
-                <i class="fas fa-edit"></i>
+                <FA icon="edit" />
             </button>,
             <button
                 className="btn btn-secondary"
@@ -104,7 +105,7 @@ class Item extends Component {
                 key="btn-remove"
                 title="Remove task"
             >
-                <i className="fas fa-trash"></i>
+                <FA icon="trash" />
             </button>
         ];
     }
@@ -128,8 +129,8 @@ class Item extends Component {
                     <button className={checkboxClass} styleName="checkbox" onClick={this.props.toggleCompleted}>
                         {
                             this.props.completed ?
-                                <i className="fas fa-check"></i> :
-                                <i className="far fa-circle"></i>
+                                <FA icon="check" /> :
+                                <FA icon={['far', 'circle']} />
                         }
                     </button>
                 </div>

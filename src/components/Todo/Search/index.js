@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 import { observer, inject } from 'mobx-react';
 
 
@@ -19,7 +20,7 @@ class Search extends React.Component {
         return (
             <div className="input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <span class="input-group-text"><FA icon="search" /></span>
                 </div>
                 <input
                     type="text"
@@ -32,7 +33,7 @@ class Search extends React.Component {
                     !!this.props.store.search &&
                     <div className="input-group-append">
                         <button className="btn btn-outline-secondary" onClick={this.props.store.setSearch.bind(this, '')}>
-                            <i className="fas fa-times"></i>
+                            <FA icon="times" />
                         </button>
                     </div>
                 }

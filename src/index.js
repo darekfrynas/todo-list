@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
 
+import faInit from './fontAwesomeInitialize';
 import App from './components/App';
 import TodoListStore from './components/Todo/List/store'
 import registerServiceWorker from './registerServiceWorker';
@@ -9,6 +10,7 @@ import './assets/styles/bootstrap.global.scss';
 import './assets/styles/app.global.scss';
 
 
+faInit();
 const store = new TodoListStore();
 
 const app = (

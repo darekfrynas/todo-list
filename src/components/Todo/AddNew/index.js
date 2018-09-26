@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 import { inject } from 'mobx-react';
 
 
@@ -35,7 +36,7 @@ class AddNew extends React.Component {
         return (
             <div className="input-group mt-4">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-keyboard"></i></span>
+                    <span class="input-group-text"><FA icon="keyboard" /></span>
                 </div>
                 <input
                     type="text"
