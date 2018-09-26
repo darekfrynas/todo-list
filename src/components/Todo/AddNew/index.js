@@ -33,21 +33,21 @@ class AddNew extends React.Component {
 
     render() {
         return (
-            <div className="input-group">
+            <div className="input-group mt-4">
                 <input
                     type="text"
                     className="form-control"
-                    placeholder="Feed the cat..."
+                    placeholder="Type in new task..."
                     value={this.state.value}
                     onChange={this.updateValue}
                     onKeyPress={this.saveWithEnterKey}
                 />
                 <div className="input-group-append">
                     <button
-                        className="btn btn-outline-primary"
+                        className="btn btn-secondary"
                         onClick={this.saveNewTodo}
                     >
-                        Save
+                        Add
                     </button>
                 </div>
             </div>
