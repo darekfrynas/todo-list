@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import classnames from 'classnames';
+import './styles.scss';
 
 
 @inject('store')
@@ -88,15 +89,21 @@ class Item extends Component {
             'btn': true,
             'btn-success': this.props.completed,
             'btn-outline-secondary': !this.props.completed,
+            'bg-white': !this.props.completed,
+        });
+
+        const itemClass = classnames({
+            'todo-item': true,
+            'completed': this.props.completed,
         });
 
         return (
-            <div className="input-group mb-1">
+            <div className="input-group mb-1" styleName={itemClass}>
                 <div className="input-group-prepend">
-                    <button className={checkboxClass} onClick={this.props.toggleCompleted}>
+                    <button className={checkboxClass} styleName="checkbox-btn" onClick={this.props.toggleCompleted}>
                         {
                             this.props.completed ?
-                                <i className="far fa-check-square"></i> :
+                                <i className="fas fa-check"></i> :
                                 <i className="far fa-square"></i>
                         }
                     </button>

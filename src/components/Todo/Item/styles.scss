@@ -1,0 +1,20 @@
+@import "../../../assets/styles/bootstrap-variables.global";
+
+.todo-item {
+    .checkbox-btn {
+        width: 45px;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+    }
+}
+
+.completed {
+    :global {
+        .form-control,
+        .form-control[readonly] {
+            background: lighten($green, 30%);
+            border-color: lighten($green, 30%);
+        }
+    }
+}
