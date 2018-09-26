@@ -37,3 +37,12 @@ Simple yet amazing TODO List, with features like:
 - AutoSave - generic solution for recovering arrays/objects
 - Lists could be assigned to projects
 - Edit mode for task could be stored in global state instead of component state, 
+
+
+## Postscriptum
+
+In a previous projects we used redux for state management, so mobx is something new to me. 
+But using the opportunity, I wanted to learn something new, so feedback is more than welcome.
+For myself I can tell already, I'm not going back to redux.
+
+Enjoy testing and reviewing. In case of questions I'm available at [darekfrynas@gmail.com](mailto:darekfrynas@gmail.com)
