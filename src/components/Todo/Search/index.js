@@ -17,7 +17,7 @@ class Search extends React.Component {
 
     render() {
         return (
-            <div className="input-group input-group-lg mb-4">
+            <div className="input-group">
                 <input
                     type="text"
                     className="form-control"
@@ -28,8 +28,8 @@ class Search extends React.Component {
                 {
                     !!this.props.store.search &&
                     <div className="input-group-append">
-                        <button class="btn btn-outline-secondary" onClick={this.props.store.setSearch.bind(this, '')}>
-                            <i class="fas fa-times"></i>
+                        <button className="btn btn-outline-secondary" onClick={this.props.store.setSearch.bind(this, '')}>
+                            <i className="fas fa-times"></i>
                         </button>
                     </div>
                 }

@@ -15,7 +15,7 @@ class Filter extends React.Component {
     getButtonClass(filter) {
         return classnames({
             'btn': true,
-            'btn-outline-secondary': true,
+            'btn-outline-primary': true,
             'w-50': filter === 'all',
             'w-100': filter !== 'all',
             'active': filter === this.props.store.filter,
@@ -24,7 +24,7 @@ class Filter extends React.Component {
 
     render() {
         return (
-            <div className="btn-group btn-group-lg d-flex">
+            <div className="btn-group d-flex">
                 <button
                     className={this.getButtonClass('all')}
                     onClick={this.props.store.setFilter.bind(this, 'all')}
