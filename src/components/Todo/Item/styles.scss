@@ -1,20 +1,50 @@
 @import "../../../assets/styles/bootstrap-variables.global";
 
 .todo-item {
-    .checkbox-btn {
-        width: 45px;
-        padding-left: 0;
-        padding-right: 0;
-        text-align: center;
+    .checkbox {
+        background: #fff;
     }
-}
 
-.completed {
     :global {
         .form-control,
-        .form-control[readonly] {
-            background: lighten($green, 30%);
-            border-color: lighten($green, 30%);
+        .form-control[readonly]
+        {
+            transition: all .2s ease;
+            background: #fff;
+        }
+    }
+
+    .item-actions {
+        position: absolute;
+        opacity: 0;
+        transition: all .2s ease;
+        right: 0;
+        z-index: 4;
+
+        :global(.btn) {
+            margin-left: 3px;
+        }
+    }
+
+    &:hover,
+    &.editable {
+        .item-actions {
+            opacity: 1;
+        }
+    }
+
+    &.editable {
+        :global {
+            .form-control {
+                background: lighten($secondary, 10%);
+            }
+        }
+    }
+
+    &.completed {
+        .checkbox {
+            background: $green;
         }
     }
 }
+
