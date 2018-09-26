@@ -1,0 +1,28 @@
+/**
+    Bootstrap settings
+ */
+$red: #D9534F;
+$green: #5CB85C;
+$blue: #428BCA;
+$border-radius: 3px;
+$input-focus-box-shadow: none;
+$secondary: #ced4da;
+$input-disabled-bg: #fff;
+$input-border-color: $secondary;
+$input-focus-border-color: $input-border-color;
+
+/**
+    Load bootstrap
+ */
+@import "~bootstrap/scss/bootstrap";
+
+
+/**
+    Overwrite some bootstrap styles
+ */
+.btn {
+    &:focus,
+    &:active {
+        box-shadow: none !important;
+    }
+}
