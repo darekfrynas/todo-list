@@ -35,8 +35,8 @@ class AddNew extends React.Component {
     render() {
         return (
             <div className="input-group mt-4">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><FA icon="keyboard" /></span>
+                <div className="input-group-prepend">
+                    <span className="input-group-text"><FA icon="keyboard" /></span>
                 </div>
                 <input
                     type="text"

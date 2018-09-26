@@ -8,6 +8,7 @@ Simple yet amazing TODO List, with features like:
 - Mark your tasks as __completed__,
 - Live __search__ through your tasks,
 - Apply __filters__ in order to see all, completed or incompleted tasks
+- All data is saved in your browser localStorage, which means you can get back to your list whenever you want to
 
 
 ## Setup

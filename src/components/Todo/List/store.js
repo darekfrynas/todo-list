@@ -17,8 +17,8 @@ class TodoListStore {
     ];
 
     @action.bound
-    addTodo(value) {
-        this.todos.push(new TodoItemStore(value));
+    addTodo(value, id, completed) {
+        this.todos.push(new TodoItemStore(value, id, completed));
     }
 
     @action.bound
@@ -58,6 +58,26 @@ class TodoListStore {
         }
 
         return filtered;
+    }
+
+    recoverStoreFromObject = (data) => {
+
+        // recover primitive types from object
+        const acceptablePrimitives = ['string', 'number', 'boolean'];
+        Object.keys(data).forEach(key => {
+            if (acceptablePrimitives.indexOf(typeof data[key] > -1)) {
+                if (typeof this[key] === typeof data[key]) {
+                    this[key] = data[key];
+                }
+            }
+        });
+
+        if (data.todos.length) {
+            this.todos = [];
+            data.todos.forEach(task => {
+                this.addTodo(task.value, task.id, task.completed)
+            });
+        }
     }
 }
 

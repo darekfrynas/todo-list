@@ -6,10 +6,10 @@ class TodoItemStore {
     @observable value;
     @observable completed;
 
-    constructor(value) {
-        this.id = this.randomizeId();
-        this.value = value;
-        this.completed = false;
+    constructor(value, id, completed) {
+        this.value = value || '';
+        this.id = id || this.randomizeId();
+        this.completed = completed || false;
     }
 
     @action.bound
