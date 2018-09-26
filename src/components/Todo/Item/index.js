@@ -67,22 +67,19 @@ class Item extends Component {
         if (!this.state.isDisabled) {
             return [
                 <button className="btn btn-success" onClick={this.setNewTaskValue} key="btn-save">Save</button>,
-                <button className="btn btn-danger" onClick={this.toggleDisabled} key="btn-dismiss">Dismiss</button>
+                <button className="btn btn-secondary" onClick={this.toggleDisabled} key="btn-dismiss">Cancel</button>
             ];
         }
 
         return [
-            <button className="btn btn-secondary dropdown-toggle" data-toggle="dropdown" key="btn-dropdown"/>,
-            <div className="dropdown-menu" key="dropdown">
-                <button className="btn dropdown-item" onClick={this.toggleDisabled}>Edit</button>
-                <div role="separator" className="dropdown-divider"></div>
-                <button
-                    className="btn dropdown-item text-danger"
-                    onClick={this.props.store.removeTodo.bind(this, this.props.id)}
-                >
-                    Remove this task
-                </button>
-            </div>
+            <button className="btn btn-primary" onClick={this.toggleDisabled} key="btn-edit">Edit</button>,
+            <button
+                className="btn btn-danger"
+                onClick={this.props.store.removeTodo.bind(this, this.props.id)}
+                key="btn-remove"
+            >
+                <i className="fas fa-times"></i>
+            </button>
         ];
     }
 
@@ -90,7 +87,7 @@ class Item extends Component {
         const checkboxClass = classnames({
             'btn': true,
             'btn-success': this.props.completed,
-            'btn-secondary': !this.props.completed,
+            'btn-outline-secondary': !this.props.completed,
         });
 
         return (
