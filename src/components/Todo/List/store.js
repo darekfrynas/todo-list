@@ -17,8 +17,8 @@ class TodoListStore {
     ];
 
     @action.bound
-    addTodo(value) {
-        this.todos.push(new TodoItemStore(value));
+    addTodo(value, id, completed) {
+        this.todos.push(new TodoItemStore(value, id, completed));
     }
 
     @action.bound
@@ -58,6 +58,23 @@ class TodoListStore {
         }
 
         return filtered;
+    }
+
+    recoverStoreFromObject = (data) => {
+        if (data.search) {
+            this.search = data.search;
+        }
+
+        if (data.filter) {
+            this.filter = data.filter;
+        }
+
+        if (data.todos.length) {
+            this.todos = [];
+            data.todos.forEach(task => {
+                this.addTodo(task.value, task.id, task.completed)
+            });
+        }
     }
 }
 

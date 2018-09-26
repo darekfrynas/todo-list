@@ -11,7 +11,7 @@ export default function autoSave(appStore) {
             const existingStore = store.get("appStore");
 
             if (existingStore) {
-                console.log(existingStore);
+                appStore.recoverStoreFromObject(existingStore);
             }
         }
 
