@@ -18,6 +18,9 @@ class Search extends React.Component {
     render() {
         return (
             <div className="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
                 <input
                     type="text"
                     className="form-control"

@@ -34,6 +34,9 @@ class AddNew extends React.Component {
     render() {
         return (
             <div className="input-group mt-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-keyboard"></i></span>
+                </div>
                 <input
                     type="text"
                     className="form-control"
@@ -44,10 +47,10 @@ class AddNew extends React.Component {
                 />
                 <div className="input-group-append">
                     <button
-                        className="btn btn-secondary"
+                        className="btn btn-success"
                         onClick={this.saveNewTodo}
                     >
-                        Add
+                        Add new task
                     </button>
                 </div>
             </div>
