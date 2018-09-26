@@ -22,3 +22,17 @@ Simple yet amazing TODO List, with features like:
 5. Install dependencies with `yarn`
 6. Start TODO app with `yarn start`
 7. Open your favorite web browser (tested on Chrome version 69) and go to [http://localhost:3000](http://localhost:3000)
+
+
+## Possible improvements
+
+- Validation to disallow creating/saving tasks with empty value)
+- Completed tasks could be moved to the bottom of the list,
+- Item id generation could be replaced with `Date.now()`, which creates possibility to introduce productivity reports (daily/weekly/monthly),
+- Tasks could store more data:
+    - priority,
+    - labels,
+    - deadlines,
+- With all above, sorting would be possible,
+- AutoSave - generic solution for recovering arrays/objects
+- Lists could be assigned to projects
