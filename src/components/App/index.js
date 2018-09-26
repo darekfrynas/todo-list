@@ -11,7 +11,7 @@ import './styles.scss';
 class App extends Component {
     render() {
         return (
-            <div class="container">
+            <div className="container">
                 <div styleName="app-container">
                     <h1>Boost your productivity with this simple tool</h1>
                     <hr className="mb-5" />
