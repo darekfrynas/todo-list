@@ -19,8 +19,8 @@ class Search extends React.Component {
     render() {
         return (
             <div className="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><FA icon="search" /></span>
+                <div className="input-group-prepend">
+                    <span className="input-group-text"><FA icon="search" /></span>
                 </div>
                 <input
                     type="text"
