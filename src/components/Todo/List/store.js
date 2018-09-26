@@ -61,13 +61,16 @@ class TodoListStore {
     }
 
     recoverStoreFromObject = (data) => {
-        if (data.search) {
-            this.search = data.search;
-        }
 
-        if (data.filter) {
-            this.filter = data.filter;
-        }
+        // recover primitive types from object
+        const acceptablePrimitives = ['string', 'number', 'boolean'];
+        Object.keys(data).forEach(key => {
+            if (acceptablePrimitives.indexOf(typeof data[key] > -1)) {
+                if (typeof this[key] === typeof data[key]) {
+                    this[key] = data[key];
+                }
+            }
+        });
 
         if (data.todos.length) {
             this.todos = [];
