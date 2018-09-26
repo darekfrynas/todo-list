@@ -18,6 +18,8 @@ class Item extends Component {
         this.getInputValue = this.getInputValue.bind(this);
         this.setNewTaskValue = this.setNewTaskValue.bind(this);
         this.toggleDisabled = this.toggleDisabled.bind(this);
+        this.startEditing = this.startEditing.bind(this);
+        this.dismissEditing = this.dismissEditing.bind(this);
         this.doubleClickToggle = this.doubleClickToggle.bind(this);
         this.updateTempValue = this.updateTempValue.bind(this);
         this.renderRightSideButtons = this.renderRightSideButtons.bind(this);
@@ -25,7 +27,10 @@ class Item extends Component {
     }
 
     getInputValue() {
-        return this.state.tempValue || this.props.value;
+        if (this.state.isDisabled) {
+            return this.props.value;
+        }
+        return this.state.tempValue;
     }
 
     setNewTaskValue() {
@@ -35,15 +40,28 @@ class Item extends Component {
 
     toggleDisabled() {
         this.setState(prevState => ({
-            tempValue: '',
             isDisabled: !prevState.isDisabled,
         }));
+    }
+
+    startEditing() {
+        this.setState({
+            tempValue: this.props.value,
+        });
+        this.toggleDisabled();
+    }
+
+    dismissEditing() {
+        this.setState({
+            tempValue: '',
+        });
+        this.toggleDisabled();
     }
 
     doubleClickToggle(e) {
         //allows input toggling only if it was disabled
         if (this.state.isDisabled) {
-            this.toggleDisabled();
+            this.startEditing();
 
             //make sure that caret goes to the end of input, instead of selecting contents
             const temp_value = e.target.value;
@@ -70,14 +88,14 @@ class Item extends Component {
                 <button className="btn btn-secondary" onClick={this.setNewTaskValue} key="btn-save" title="Save changes">
                     <i className="fas fa-save"></i>
                 </button>,
-                <button className="btn btn-secondary" onClick={this.toggleDisabled} key="btn-dismiss" title="Dismiss">
+                <button className="btn btn-secondary" onClick={this.dismissEditing} key="btn-dismiss" title="Dismiss">
                     <i className="fas fa-undo"></i>
                 </button>,
             ];
         }
 
         return [
-            <button className="btn btn-secondary" onClick={this.toggleDisabled} key="btn-edit" title="Edit task">
+            <button className="btn btn-secondary" onClick={this.startEditing} key="btn-edit" title="Edit task">
                 <i class="fas fa-edit"></i>
             </button>,
             <button
