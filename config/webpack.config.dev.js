@@ -23,6 +23,10 @@ const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
+// pattern for auto-generated hashed css class names,
+// for details check https://github.com/webpack/loader-utils#interpolatename
+const cssLocalIdentName = '[folder]_[local]_[hash:base64:5]';
+
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -151,6 +155,21 @@ module.exports = {
                             // directory for faster rebuilds.
                             cacheDirectory: true,
                             plugins:[
+                                [
+                                    "react-css-modules",
+                                    {
+                                        "generateScopedName": cssLocalIdentName,
+                                        "filetypes": {
+                                            ".scss": {
+                                                "syntax": "postcss-scss",
+                                                "plugins": [
+                                                    "postcss-nested"
+                                                ]
+                                            }
+                                        },
+                                        "webpackHotModuleReloading": true,
+                                    }
+                                ],
                                 'transform-decorators-legacy',
                                 'transform-class-properties',
                             ],
@@ -170,7 +189,7 @@ module.exports = {
                                     loader: 'css-loader',
                                     options: {
                                         modules: true,
-                                        localIdentName: '[name]__[local]__[hash:base64:5]',
+                                        localIdentName: cssLocalIdentName,
                                     }
                                 },
                                 'postcss-loader',
@@ -188,7 +207,7 @@ module.exports = {
                                         modules: true,
                                         sourceMap: true,
                                         importLoaders: 2,
-                                        localIdentName: '[name]__[local]__[hash:base64:5]',
+                                        localIdentName: cssLocalIdentName,
                                     }
                                 },
                                 'sass-loader'
