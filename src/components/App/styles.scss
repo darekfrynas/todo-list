@@ -1,28 +1,5 @@
-body {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-// undo box shadow applied by bootstrap
-// this could be done by sass variables but we're loading minified bootstrap css through
-:global {
-    textarea,
-    textarea.form-control,
-    input.form-control,
-    input[type=text],
-    input[type=password],
-    input[type=email],
-    input[type=number],
-    [type=text].form-control,
-    [type=password].form-control,
-    [type=email].form-control,
-    [type=tel].form-control,
-    [contenteditable].form-control,
-    .btn {
-        &:focus,
-        &:active,
-        &:active:focus {
-            box-shadow: none !important;
-        }
-    }
+.app-container {
+    background: rgba(#fff, .75);
+    padding: 5rem;
+    box-shadow: 0 0 150px rgba(#000, .1);
 }
