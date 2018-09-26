@@ -3,7 +3,7 @@
 Simple yet amazing TODO List, with features like:
 
 - __Create__ a task by typing and hitting <kbd>Enter</kbd> key, or pressing "Add" button,
-- __Edit__ a task whenever you want, simply double-click on it, or press "Edit" button,
+- __Edit__ a task whenever you want, simply double-click on it, or press "Edit" button, (don't forget to save changes)
 - __Remove__ a task when you don't need it anymore,
 - Mark your tasks as __completed__,
 - Live __search__ through your tasks,
@@ -36,3 +36,4 @@ Simple yet amazing TODO List, with features like:
 - With all above, sorting would be possible,
 - AutoSave - generic solution for recovering arrays/objects
 - Lists could be assigned to projects
+- Edit mode for task could be stored in global state instead of component state, 
